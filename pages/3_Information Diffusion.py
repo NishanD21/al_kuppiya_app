@@ -100,3 +100,12 @@ st.pyplot(fig_nx, use_container_width=True)
 st.pyplot(fig_bet, use_container_width=True)
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
+
+hide_stremlit_style = """
+<style>
+#MainMenu{visibility:hidden}
+footer{visibility:hidden}
+</style>
+
+"""
+st.markdown(hide_stremlit_style,unsafe_allow_html=True)

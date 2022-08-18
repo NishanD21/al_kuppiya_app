@@ -137,3 +137,12 @@ fig_fb_pol= px.bar(
 )
 
 st.plotly_chart(fig_fb_pol,use_container_width=True,)   
+
+hide_stremlit_style = """
+<style>
+#MainMenu{visibility:hidden}
+footer{visibility:hidden}
+</style>
+
+"""
+st.markdown(hide_stremlit_style,unsafe_allow_html=True)

@@ -47,3 +47,12 @@ st.sidebar.markdown("<h2 style='text-align: center;'> </h2>", unsafe_allow_html=
 st.sidebar.markdown("<h2 style='text-align: center;'> </h2>", unsafe_allow_html=True)
 
 st.sidebar.image(img00)
+
+hide_stremlit_style = """
+<style>
+#MainMenu{visibility:hidden}
+footer{visibility:hidden}
+</style>
+
+"""
+st.markdown(hide_stremlit_style,unsafe_allow_html=True)

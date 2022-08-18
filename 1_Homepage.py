@@ -9,6 +9,13 @@ from PIL import Image # to import images to User Interface (UI)
 import requests # to assist importing images to User Interface (UI)
 from io import BytesIO # to assist importing images to User Interface (UI)
 
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 st.set_page_config(
     page_title="A/L Kuppiya SNA",
     page_icon="💻",

@@ -82,13 +82,11 @@ st.markdown("<h3 style='text-align: center;'> ⬅️ USE THE SIDE BAR MENU TO VI
 st.markdown("<h2 style='text-align: center;'> </h2>", unsafe_allow_html=True)
 st.markdown("<h6 style='text-align: center;'>Note: Social Media Analytics Dashboard for A/L Kuppiya Mobile Application is designed as a part of the assignment of Social Media Analytics for Business module of MSc Data Science program. Data used to present in this dashboard are only used for educational purposes and any of the data used here will not be used for any other purposes.   </h6>", unsafe_allow_html=True)
 
-#col4, col5, col6 = st.columns(3)
+hide_stremlit_style = """
+<style>
+#MainMenu{visibility:hidden}
+footer{visibility:hidden}
+</style>
 
-#with col4:
-    #st.image(img1,caption='Facebook')
-
-#with col5:
-    #st.image(img2,caption='YouTube')
-
-#with col6:
-    #st.image(img3,caption='Instagram')
+"""
+st.markdown(hide_stremlit_style,unsafe_allow_html=True)

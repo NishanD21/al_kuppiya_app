@@ -437,3 +437,12 @@ col16,col17,col18= st.columns(3)
 col16.plotly_chart(fig_insta_fol,use_container_width=True)
 col17.plotly_chart(fig_insta_sum_likes,use_container_width=True)
 col18.plotly_chart(fig_insta_sum_comments,use_container_width=True)
+
+hide_stremlit_style = """
+<style>
+#MainMenu{visibility:hidden}
+footer{visibility:hidden}
+</style>
+
+"""
+st.markdown(hide_stremlit_style,unsafe_allow_html=True)

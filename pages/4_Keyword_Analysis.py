@@ -63,17 +63,7 @@ def extract_text_yt():
 
 # Separating keywords 
 
-keywords_yt= []
-rating_yt =[]
-
-r = Rake()
-r.extract_keywords_from_text(extract_text_yt())
-for rating_y, keyword_yt in r.get_ranked_phrases_with_scores():
-    if rating_y > 10:
-        keywords_yt.append(keyword_yt)
-        keywords_yt.append(rating_y)
-
-df_yt = pd.DataFrame(keywords_yt)
+df_yt = pd.read_json("https://raw.githubusercontent.com/NishanD21/SNA/main/3.%20Keyword%20Behaviour%20-%20Copy/yt_keywords.json")
 
 #Finding the Fuzzywuzzy rating for Hashtags
 
@@ -81,7 +71,7 @@ hashtags_yt = ['#advancelevel','#alkuppiya','#onlineclasses','#liveclasses','#vi
 rating_yt = []
 
 for words_yt in hashtags_yt:
-    ratio_yt = fuzz.WRatio(words_yt,df_yt[0])
+    ratio_yt = fuzz.WRatio(words_yt,df_yt['1970-01-01'])
     rating_yt.append(ratio_yt)
 
 df_com_yt = pd.DataFrame({'Hashtags':hashtags_yt,
@@ -117,17 +107,7 @@ def extract_text_fb():
 
 # Separating keywords 
 
-keywords_fb= []
-rating_fb =[]
-
-r = Rake()
-r.extract_keywords_from_text(extract_text_fb())
-for rating_f, keyword_fb in r.get_ranked_phrases_with_scores():
-    if rating_f > 10:
-        keywords_fb.append(keyword_fb)
-        keywords_yt.append(rating_f)
-
-df_fb = pd.DataFrame(keywords_fb)
+df_fb = pd.read_json("https://raw.githubusercontent.com/NishanD21/SNA/main/3.%20Keyword%20Behaviour%20-%20Copy/fb_keywords.json")
 
 #Finding the Fuzzywuzzy rating for Hashtags
 
@@ -135,7 +115,7 @@ hashtags_fb = ['#advancelevel','#alkuppiya','#onlineclasses','#liveclasses','#vi
 rating_fb = []
 
 for words_fb in hashtags_fb:
-    ratio_fb = fuzz.WRatio(words_fb,df_fb[0])
+    ratio_fb = fuzz.WRatio(words_fb,df_fb['1970-01-01'])
     rating_fb.append(ratio_fb)
 
 df_com_fb = pd.DataFrame({'Hashtags':hashtags_fb,
@@ -170,17 +150,7 @@ def extract_text_in():
 
 # Separating keywords 
 
-keywords_in= []
-rating_in =[]
-
-r = Rake()
-r.extract_keywords_from_text(extract_text_in())
-for rating_i, keyword_in in r.get_ranked_phrases_with_scores():
-    if rating_i > 10:
-        keywords_in.append(keyword_in)
-        keywords_in.append(rating_i)
-
-df_in = pd.DataFrame(keywords_in)
+df_in = pd.read_json("https://raw.githubusercontent.com/NishanD21/SNA/main/3.%20Keyword%20Behaviour%20-%20Copy/insta_keywords.json")
 
 #Finding the Fuzzywuzzy rating for Hashtags
 
@@ -188,7 +158,7 @@ hashtags_in = ['#advancelevel','#alkuppiya','#onlineclasses','#liveclasses','#vi
 rating_in = []
 
 for words_in in hashtags_in:
-    ratio_in = fuzz.WRatio(words_in,df_in[0])
+    ratio_in = fuzz.WRatio(words_in,df_in['1970-01-01'])
     rating_in.append(ratio_in)
 
 df_com_in = pd.DataFrame({'Hashtags':hashtags_in,

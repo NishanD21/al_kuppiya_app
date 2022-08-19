@@ -80,7 +80,6 @@ channel_statistics = get_channel_stats(youtube, channel_ids)
 
 channel_data = pd.DataFrame(channel_statistics)
 
-
 channel_data['Subscribers'] = pd.to_numeric(channel_data['Subscribers'])
 channel_data['Views'] = pd.to_numeric(channel_data['Views'])
 channel_data['Total_videos'] = pd.to_numeric(channel_data['Total_videos'])
@@ -180,13 +179,13 @@ total_comments = video_data['Comments'].sum()
 
 left_column, middle_column, right_column = st.columns(3)
 with left_column:
-    st.subheader("Subscribers:")
+    st.subheader("SUBSCRIBERS:")
     st.subheader(subscibers)
 with middle_column:
-    st.subheader("Total Likes:")
+    st.subheader("TOTAL LIKES:")
     st.subheader(total_likes)
 with right_column:
-    st.subheader("Total Comments:")
+    st.subheader("TOTAL COMMENTS:")
     st.subheader(total_comments)
 
 
@@ -199,7 +198,7 @@ fig_vids_month= px.line(
     x= videos_per_month.index,
     y= "size",
     title="<b>Number of Posted Videos in each month</b>",
-    color_discrete_sequence=["#0073B8"] * len(vids_per_month_chart),
+    color_discrete_sequence=["#d62728"] * len(vids_per_month_chart),
     template="plotly_dark",
     text="size",
     markers=True
@@ -212,8 +211,9 @@ fig_top10_vids= px.bar(
     x= "Views",
     y= top10_videos['Title'],
     title="<b>Top Ten Videos with most number of Views</b>",
-    color_discrete_sequence=["#0073B8"] * len(top10_vids_chart),
+    color_discrete_sequence=["#d62728"] * len(top10_vids_chart),
     template="plotly_dark",
+    text_auto=True
 )
 
 # Competitor analysis charts
@@ -223,8 +223,9 @@ fig_subs= px.bar(
     x=sub_chart.index,
     y="Subscribers",
     title="<b>Subscribers</b>",
-    color_discrete_sequence=["#0083B8"] * len(sub_chart),
+    color_discrete_sequence=["#d62728"] * len(sub_chart),
     template="plotly_dark",
+    text_auto=True
 )
 
 view_chart = channel_data.groupby(by=["Channel_name"]).sum()[["Views"]]
@@ -233,8 +234,9 @@ fig_views = px.bar(
     x=view_chart.index,
     y="Views",
     title="<b>Views</b>",
-    color_discrete_sequence=["#0083B8"] * len(view_chart),
+    color_discrete_sequence=["#d62728"] * len(view_chart),
     template="plotly_dark",
+    text_auto=True
 )
 
 vid_chart = channel_data.groupby(by=["Channel_name"]).sum()[["Total_videos"]]
@@ -243,15 +245,16 @@ fig_vids = px.bar(
     x=vid_chart.index,
     y="Total_videos",
     title="<b>Total Videos</b>",
-    color_discrete_sequence=["#0083B8"] * len(vid_chart),
+    color_discrete_sequence=["#d62728"] * len(vid_chart),
     template="plotly_dark",
+    text_auto=True
 )
 
 
 st.plotly_chart(fig_top10_vids,use_container_width=True)
 st.plotly_chart(fig_vids_month,use_container_width=True)
 
-st.markdown('Competitor Analysis')
+st.markdown("<h3 style='text-align: left;'>COMPETITOR ANALYSIS</h3>", unsafe_allow_html=True)
 
 st.dataframe(channel_data[['Channel_name','Subscribers','Views','Total_videos']])
 
@@ -268,7 +271,7 @@ st.image(img1)
 
 followers = "26,507"
 
-st.subheader(f"Facebook Page Followers: {followers}") 
+st.subheader(f"FACEBOOK PAGE FOLLOWERS: {followers}") 
 
 st.subheader("") 
 
@@ -288,6 +291,7 @@ fig_fb_al_likes= px.bar(
     title="<b>Likes recieved for each post</b>",
     color_discrete_sequence=["#0083B8"] * len(fb_al_likes_chart),
     template="plotly_dark",
+    text_auto=True,
 )
 
 fb_al_shares_chart = df_fb_al_ue.groupby(by=["post_id"]).sum()[["shares"]]
@@ -298,6 +302,7 @@ fig_fb_al_shares= px.bar(
     title="<b>Shares recieved for each post</b>",
     color_discrete_sequence=["#0083B8"] * len(fb_al_shares_chart ),
     template="plotly_dark",
+    text_auto=True
 )
 
 fb_al_comments_chart = df_fb_al_ue.groupby(by=["post_id"]).sum()[["comments"]]
@@ -308,6 +313,7 @@ fig_fb_al_comments= px.bar(
     title="<b>Comments recieved for each post</b>",
     color_discrete_sequence=["#0083B8"] * len(fb_al_comments_chart ),
     template="plotly_dark",
+    text_auto=True
 )
 
 
@@ -323,7 +329,7 @@ col14.plotly_chart(fig_fb_al_comments,use_container_width=True)
 
 #...............................Facebook Competitor Analysis..................................
 
-st.markdown("<h5 style='text-align: left;'>Competitor Analysis</h5>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: left;'>COMPETITOR ANALYSIS</h3>", unsafe_allow_html=True)
 
 fb_summary_ue_lchart = df_fb_ue_summary.groupby(by=["Product"]).sum()[["Likes"]]
 fig_fb_lsummary= px.bar(
@@ -333,6 +339,7 @@ fig_fb_lsummary= px.bar(
     title="<b>Likes</b>",
     color_discrete_sequence=["#0083B8"] * len(fb_summary_ue_lchart),
     template="plotly_dark",
+    text_auto=True
 )
 
 fb_summary_ue_schart = df_fb_ue_summary.groupby(by=["Product"]).sum()[["Shares"]]
@@ -343,6 +350,7 @@ fig_fb_ssummary= px.bar(
     title="<b>Shares</b>",
     color_discrete_sequence=["#0083B8"] * len(fb_summary_ue_schart),
     template="plotly_dark",
+    text_auto=True
 )
 
 fb_summary_ue_cchart = df_fb_ue_summary.groupby(by=["Product"]).sum()[["Comments"]]
@@ -353,6 +361,7 @@ fig_fb_csummary= px.bar(
     title="<b>Comments</b>",
     color_discrete_sequence=["#0083B8"] * len(fb_summary_ue_cchart ),
     template="plotly_dark",
+    text_auto=True
 )
 
 st.markdown('For competitor analysis, only last 18 posts which posted on each page were considered')
@@ -380,13 +389,13 @@ total_comments_insta = df_insta_ue_summary['Total Comments'][0]
 
 left_column_insta, middle_column_insta, right_column_insta = st.columns(3)
 with left_column_insta:
-    st.subheader("Followers:")
+    st.subheader("FOLLOWERS:")
     st.subheader(followers)
 with middle_column_insta:
-    st.subheader("Total Likes:")
+    st.subheader("TOTAL LIKES:")
     st.subheader(total_likes_insta)
 with right_column_insta:
-    st.subheader("Total Comments:")
+    st.subheader("TOTAL COMMENTS:")
     st.subheader(total_comments_insta)
 
 #............. A/L Kuppiya Instagram User engagement and Data Visualization..................
@@ -397,8 +406,9 @@ fig_insta_likes= px.bar(
     x=df_insta_al_ue["Post"],
     y="Likes",
     title="<b>Number of Likes received for last 20 posts</b>",
-    color_discrete_sequence=["#0083B8"] * len(insta_like_ue_chart ),
+    color_discrete_sequence=["#9467bd"] * len(insta_like_ue_chart ),
     template="plotly_dark",
+    text_auto=True
 )
 
 insta_fol_sum_chart = df_insta_ue_summary.groupby(by=["Product"]).sum()[["Followers"]]
@@ -407,8 +417,9 @@ fig_insta_fol= px.bar(
     x=df_insta_ue_summary["Product"],
     y="Followers",
     title="<b>Instagram Followers</b>",
-    color_discrete_sequence=["#0083B8"] * len(insta_fol_sum_chart),
+    color_discrete_sequence=["#9467bd"] * len(insta_fol_sum_chart),
     template="plotly_dark",
+    text_auto=True
 )
 
 insta_like_sum_chart = df_insta_ue_summary.groupby(by=["Product"]).sum()[["Total Likes"]]
@@ -417,8 +428,9 @@ fig_insta_sum_likes= px.bar(
     x=df_insta_ue_summary["Product"],
     y="Total Likes",
     title="<b>Total Likes for Instagram Posts</b>",
-    color_discrete_sequence=["#0083B8"] * len(insta_like_sum_chart),
+    color_discrete_sequence=["#9467bd"] * len(insta_like_sum_chart),
     template="plotly_dark",
+    text_auto=True
 )
 
 insta_comments_sum_chart = df_insta_ue_summary.groupby(by=["Product"]).sum()[["Total Comments"]]
@@ -427,13 +439,14 @@ fig_insta_sum_comments= px.bar(
     x=df_insta_ue_summary["Product"],
     y="Total Comments",
     title="<b>Total Comments for Instagram Posts</b>",
-    color_discrete_sequence=["#0083B8"] * len(insta_comments_sum_chart),
+    color_discrete_sequence=["#9467bd"] * len(insta_comments_sum_chart),
     template="plotly_dark",
+    text_auto=True
 )
 
 st.plotly_chart(fig_insta_likes,use_container_width=True,)
 
-st.markdown("<h5 style='text-align: left;'>Competitor Analysis</h5>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: left;'>COMPETITOR ANALYSIS</h3>", unsafe_allow_html=True)
 
 col16,col17,col18= st.columns(3)
 

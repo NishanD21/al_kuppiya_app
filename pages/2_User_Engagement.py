@@ -171,7 +171,10 @@ videos_per_month['Months'] = ['January','February','March','April','May','June',
 
 # KPIs visualization
 
-subscibers = channel_data['Subscribers'][0]
+channel_data_alk = channel_data
+ch_al = channel_data_alk.set_index("Channel_name")
+
+subscibers = ch_al['Subscribers']['AL Kuppiya']
 total_likes = video_data['Likes'].sum()
 total_comments = video_data['Comments'].sum()
 

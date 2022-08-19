@@ -33,18 +33,24 @@ url0 = "https://raw.githubusercontent.com/NishanD21/SNA/main/Images/Information%
 url1 = "https://raw.githubusercontent.com/NishanD21/SNA/main/Images/Facebook-logo-PSD-1.jpg"
 url2 = "https://raw.githubusercontent.com/NishanD21/SNA/d4d282cba51f29e11e4cb91c61fe4431ef88f7fd/Images/YT1.png"
 url3 = "https://raw.githubusercontent.com/NishanD21/SNA/main/Images/Insta.png"
+url4 = "https://raw.githubusercontent.com/NishanD21/SNA/main/Images/Information%20Diffusion/Degree%20Centrality.PNG"
+url5 = "https://raw.githubusercontent.com/NishanD21/SNA/main/Images/Information%20Diffusion/Eigenvector%20centrality.PNG"
 url00 = "https://raw.githubusercontent.com/NishanD21/SNA/main/Images/Sidebar/SM%20Logos.png"
 
 response0 = requests.get(url0)
 response1 = requests.get(url1)
 response2 = requests.get(url2)
 response3 = requests.get(url3)
+response4 = requests.get(url4)
+response5 = requests.get(url5)
 response00 = requests.get(url00)
 
 img0 = Image.open(BytesIO(response0.content))
 img1 = Image.open(BytesIO(response1.content))
 img2 = Image.open(BytesIO(response2.content))
 img3 = Image.open(BytesIO(response3.content))
+img4 = Image.open(BytesIO(response4.content))
+img5 = Image.open(BytesIO(response5.content))
 img00 = Image.open(BytesIO(response00.content))
 
 st.image(img0)
@@ -94,10 +100,23 @@ y = sorted(betCent2, key=betCent2.get, reverse=True)[:8]
 degree = pd.DataFrame({"Identified list of Influencers":y})
 
 
-degree
+col1,col2 =st.columns(2)
 
-st.pyplot(fig_nx, use_container_width=True)
-st.pyplot(fig_bet, use_container_width=True)
+with col1:
+    st.subheader("INFLUENCERS")
+    st.table(degree)
+with col2:
+    st.subheader("BETWEENESS CENTRALITY")
+    st.pyplot(fig_bet, use_container_width=True)
+
+col3,col4 =st.columns(2)
+
+with col3:
+    st.subheader("DEGREE CENTRALITY")
+    st.image(img4)
+with col4:
+    st.subheader("EIGENVECTOR CENTRALITY")
+    st.image(img5)
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 

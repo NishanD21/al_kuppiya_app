@@ -67,7 +67,7 @@ df_yt = pd.read_json("https://raw.githubusercontent.com/NishanD21/SNA/main/3.%20
 
 #Finding the Fuzzywuzzy rating for Hashtags
 
-hashtags_yt = ['#advancelevel','#alkuppiya','#onlineclasses','#liveclasses','#videolessons','#studymotivations','#elearning','#exam','#free','#youtube']
+hashtags_yt = ['#advancelevel','#youtube','#alkuppiya','#subscribe','#liveclasses','#new','#studymotivations','#elearning','#exam','#trailer']
 rating_yt = []
 
 for words_yt in hashtags_yt:
@@ -111,7 +111,7 @@ df_fb = pd.read_json("https://raw.githubusercontent.com/NishanD21/SNA/main/3.%20
 
 #Finding the Fuzzywuzzy rating for Hashtags
 
-hashtags_fb = ['#advancelevel','#alkuppiya','#onlineclasses','#liveclasses','#videolessons','#studymotivations','#elearning','#exam','#free','#youtube']
+hashtags_fb = ['#alkuppiya','#onlineclasses','#liveclasses','#advancelevel','#videolessons','#tutorials','#elearning','#exam','#syllabus','#facebook']
 rating_fb = []
 
 for words_fb in hashtags_fb:
@@ -154,7 +154,7 @@ df_in = pd.read_json("https://raw.githubusercontent.com/NishanD21/SNA/main/3.%20
 
 #Finding the Fuzzywuzzy rating for Hashtags
 
-hashtags_in = ['#advancelevel','#alkuppiya','#onlineclasses','#liveclasses','#videolessons','#studymotivations','#elearning','#exam','#free','#youtube']
+hashtags_in = ['#videolessons','#studymotivations','#advancelevel','#alkuppiya','#onlineclasses','#liveclasses','#elearning','#exam','#subscribe','#instagram']
 rating_in = []
 
 for words_in in hashtags_in:

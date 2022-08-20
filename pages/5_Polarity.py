@@ -70,10 +70,10 @@ avg_polarity_yt = df_yt_pol['Polarity'].sum()/len(polarity)
 
 left_column, middle_column, right_column = st.columns(3)
 with left_column:
-    st.subheader("AVERAGE POLARITY:")
+    st.subheader("AVERAGE POLARITY :")
     st.subheader(avg_polarity_yt)
 with middle_column:
-    st.subheader("")
+    st.markdown("(For the comments received for the YouTube video with most number of views)")
     st.subheader("")
 with right_column:
     st.subheader("")
@@ -84,7 +84,7 @@ fig_yt_pol= px.bar(
    yt_polarity_chart,
     x=df_yt_pol["No"],
     y="Polarity",
-    title="<b>Polarity of YouTube Comments</b>",
+    title="<b>Polarity of the comments received for the YouTube video with the most number of views</b>",
     color_discrete_sequence=["#d62728"] * len(yt_polarity_chart),
     template="plotly_dark",
     text_auto=True
@@ -118,10 +118,10 @@ avg_polarity_fb = df_fb_pol['Polarity'].sum()/len(polarity_fb)
 
 left_column1, middle_column2, right_column3 = st.columns(3)
 with left_column1:
-    st.subheader("AVERAGE POLARITY:")
+    st.subheader("AVERAGE POLARITY :")
     st.subheader(avg_polarity_fb)
 with middle_column2:
-    st.subheader("")
+    st.markdown("(For the comments received for last Facebook page posts)")
     st.subheader("")
 with right_column3:
     st.subheader("")
@@ -132,7 +132,7 @@ fig_fb_pol= px.bar(
    fb_polarity_chart,
     x=df_fb_pol["No"],
     y="Polarity",
-    title="<b>Polarity of Facebook Comments</b>",
+    title="<b>Polarity of the comments received for the last twenty Facebook page posts</b>",
     color_discrete_sequence=["#0083B8"] * len(yt_polarity_chart),
     template="plotly_dark",
     text_auto=True

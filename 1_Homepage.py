@@ -1,4 +1,6 @@
-#...............Import Libraries..................
+#..............................UI design of Home Page.....................................
+
+#Importing Libraries
 
 import pandas as pd # for dataframe manipulation
 import plotly.express as px # for data visualization

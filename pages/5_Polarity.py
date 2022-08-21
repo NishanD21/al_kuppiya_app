@@ -121,7 +121,7 @@ with left_column1:
     st.subheader("AVERAGE POLARITY :")
     st.subheader(avg_polarity_fb)
 with middle_column2:
-    st.markdown("(For the comments received for last Facebook page posts)")
+    st.markdown("(For the comments received for last twenty Facebook page posts)")
     st.subheader("")
 with right_column3:
     st.subheader("")

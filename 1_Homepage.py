@@ -11,7 +11,6 @@ from PIL import Image # to import images to User Interface (UI)
 import requests # to assist importing images to User Interface (UI)
 from io import BytesIO # to assist importing images to User Interface (UI)
 
-
 st.set_page_config(
     page_title="A/L Kuppiya SNA",
     page_icon="💻",
@@ -42,6 +41,8 @@ st.sidebar.markdown("<h2 style='text-align: center;'> </h2>", unsafe_allow_html=
 st.sidebar.markdown("<h2 style='text-align: center;'> </h2>", unsafe_allow_html=True)
 
 st.sidebar.image(img00)
+st.sidebar.markdown("<h6 style='text-align: center;'>Developed by: </h6>", unsafe_allow_html=True)
+st.sidebar.markdown("<h6 style='text-align: center;'>Nishan Obeyesekera(Cardiff Met ID :20228183) </h6>", unsafe_allow_html=True)
 
 st.markdown("<h2 style='text-align: center;'> </h2>", unsafe_allow_html=True)
 url = "https://raw.githubusercontent.com/NishanD21/SNA/9a094aa31f177e729d6ac3d6a7855c28c3ec46a7/Images/AL_kuppiya_logo.png"

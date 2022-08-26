@@ -47,6 +47,8 @@ st.sidebar.markdown("<h2 style='text-align: center;'> </h2>", unsafe_allow_html=
 st.sidebar.markdown("<h2 style='text-align: center;'> </h2>", unsafe_allow_html=True)
 
 st.sidebar.image(img00)
+st.sidebar.markdown("<h6 style='text-align: center;'>Developed by: </h6>", unsafe_allow_html=True)
+st.sidebar.markdown("<h6 style='text-align: center;'>Nishan Obeyesekera(Cardiff Met ID :20228183) </h6>", unsafe_allow_html=True)
 
 
 df_yt_com = pd.read_json('https://raw.githubusercontent.com/NishanD21/SNA/main/Information%20Diffusion/YT_Comments.json')

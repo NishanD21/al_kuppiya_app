@@ -50,6 +50,8 @@ st.sidebar.markdown("<h2 style='text-align: center;'> </h2>", unsafe_allow_html=
 st.sidebar.markdown("<h2 style='text-align: center;'> </h2>", unsafe_allow_html=True)
 
 st.sidebar.image(img00)
+st.sidebar.markdown("<h6 style='text-align: center;'>Developed by: </h6>", unsafe_allow_html=True)
+st.sidebar.markdown("<h6 style='text-align: center;'>Nishan Obeyesekera(Cardiff Met ID :20228183) </h6>", unsafe_allow_html=True)
 
 #.................... Hashtag Analysis of YouTube............................
 

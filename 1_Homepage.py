@@ -11,7 +11,7 @@ from PIL import Image # to import images to User Interface (UI)
 import requests # to assist importing images to User Interface (UI)
 from io import BytesIO # to assist importing images to User Interface (UI)
 
-@st.cache(hash_funcs={"MyUnhashableClass": lambda _: None}
+@st.cache(ttl=24*3600)
 
 st.set_page_config(
     page_title="A/L Kuppiya SNA",
